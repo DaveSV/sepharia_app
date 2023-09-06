@@ -203,9 +203,9 @@ def cleanup_and_format_text(text, language):
     text = text.replace(u"\u05BE", " ")  #replace hebrew dash with ascii
 
     if language == "he":
-        strip_cantillation_vowel_regex = re.compile(ur"[^\u05d0-\u05f4\s^\x00-\x7F\x80-\xFF\u0100-\u017F\u0180-\u024F\u1E00-\u1EFF\u2000-\u206f]", re.UNICODE)
+        strip_cantillation_vowel_regex = re.compile(r"[^\u05d0-\u05f4\s^\x00-\x7F\x80-\xFF\u0100-\u017F\u0180-\u024F\u1E00-\u1EFF\u2000-\u206f]", re.UNICODE)
     else:
-        strip_cantillation_vowel_regex = re.compile(ur"[^\s^\x00-\x7F\x80-\xFF\u0100-\u017F\u0180-\u024F\u1E00-\u1EFF\u2000-\u206f]", re.UNICODE)
+        strip_cantillation_vowel_regex = re.compile(r"[^\s^\x00-\x7F\x80-\xFF\u0100-\u017F\u0180-\u024F\u1E00-\u1EFF\u2000-\u206f]", re.UNICODE)
     text = strip_cantillation_vowel_regex.sub('', text)
     text = smart_truncate(text)
     text = get_display(text)
